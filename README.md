@@ -197,7 +197,7 @@ curl -X POST \
 
 ## Séquence 4 : Documentation
 
-### 📁 Structure du projet
+### Structure du projet
 
 ```
 API_Driven/
