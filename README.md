@@ -18,13 +18,11 @@ sudo -i python3 -m venv ./rep_localstack
 sudo -i pip install --upgrade pip && python3 -m pip install localstack && export S3_SKIP_SIGNATURE_VALIDATION=0
 ```
 
-**Ajout du token LocalStack (obligatoire depuis mars 2026)**
+**Ajout du token LocalStack **
 
 ```bash
 export LOCALSTACK_AUTH_TOKEN=votre_token_ici
 ```
-
-> Créez un compte sur https://app.localstack.cloud pour obtenir votre token gratuit.
 
 **Démarrage de LocalStack**
 
@@ -45,8 +43,6 @@ Dans l'onglet **[PORTS]** de votre Codespace, rendez public le port **4566** —
 ---
 
 ## Séquence 3 : Déploiement de l'infrastructure
-Objectif : Piloter une instance EC2 via API Gateway
-Difficulté : Moyen/Difficile (~2h)
 
 **Installation des outils AWS**
 
@@ -194,7 +190,6 @@ curl -X POST \
 
 ---
 
-## Séquence 4 : Documentation
 
 ### Structure du projet
 
@@ -207,7 +202,7 @@ API_Driven/
 └── README.md             # Documentation
 ```
 
-### ⚡ Lancement rapide (Makefile)
+### Lancement rapide (Makefile)
 
 ```bash
 make all
@@ -221,15 +216,6 @@ make all
 | `make test-start` | Démarre l'instance EC2 |
 | `make clean` | Supprime les ressources |
 
-###  Explication technique
-
-**LocalStack** simule les services AWS en local sans compte AWS réel. Tout tourne dans un container Docker sur le port 4566.
-
-**API Gateway** expose un endpoint HTTP POST sur `/ec2` qui déclenche la fonction Lambda.
-
-**Lambda** reçoit l'action (`start`, `stop`, `status`) et l'instance_id, puis appelle l'API EC2 de LocalStack via l'adresse `172.17.0.1:4566` (adresse interne du container Docker).
-
-**EC2** est une instance simulée par LocalStack qui répond aux appels start/stop/describe.
 
 ---
 
