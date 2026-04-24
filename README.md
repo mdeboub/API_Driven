@@ -188,6 +188,14 @@ curl -X POST \
   -d "{\"action\": \"start\", \"instance_id\": \"$INSTANCE_ID\"}"
 ```
 
+**Résultat attendu :**
+
+```json
+{"instance_id": "i-a93ed393de51d58fe", "state": "running"}
+```
+
+> L'instance EC2 est bien en état **running** — l'architecture API Gateway → Lambda → EC2 fonctionne correctement.
+
 ---
 
 
