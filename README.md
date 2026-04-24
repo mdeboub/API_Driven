@@ -2,8 +2,7 @@
 
 
 ## Séquence 2 : Création de l'environnement AWS (LocalStack)
-Objectif : Créer l'environnement AWS simulé avec LocalStack
-Difficulté : Simple (~5 minutes)
+
 
 **Installation de l'émulateur LocalStack**
 
